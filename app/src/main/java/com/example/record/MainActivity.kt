@@ -28,7 +28,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         val btn_record = binding.buttonStartRecording
-        val btn_pause = binding.buttonPauseRecording
+//        val btn_pause = binding.buttonPauseRecording
         val btn_stop = binding.buttonStopRecording
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.RECORD_AUDIO) != PackageManager.PERMISSION_GRANTED && ContextCompat.checkSelfPermission(this,
@@ -73,9 +73,9 @@ class MainActivity : AppCompatActivity() {
             }
         }
 
-        btn_pause.setOnClickListener {
-            pauseRecording()
-        }
+//        btn_pause.setOnClickListener {
+//            pauseRecording()
+//        }
 
         btn_stop.setOnClickListener {
             stopRecording()
@@ -111,28 +111,28 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    @SuppressLint("RestrictedApi", "SetTextI18n")
+//    @SuppressLint("RestrictedApi", "SetTextI18n")
+////    @TargetApi(Build.VERSION_CODES.N)
+//    private fun pauseRecording() {
+//        if (state) {
+//            if (!recordingStopped) {
+//                Toast.makeText(this, "Stopped!", Toast.LENGTH_SHORT).show()
+//                mediaRecorder?.pause()
+//                recordingStopped = true
+////                button_pause_recording.text = "Resume"
+//            } else {
+//                resumeRecording()
+//            }
+//        }
+//    }
+//
+//    @SuppressLint("RestrictedApi", "SetTextI18n")
 //    @TargetApi(Build.VERSION_CODES.N)
-    private fun pauseRecording() {
-        if (state) {
-            if (!recordingStopped) {
-                Toast.makeText(this, "Stopped!", Toast.LENGTH_SHORT).show()
-                mediaRecorder?.pause()
-                recordingStopped = true
-//                button_pause_recording.text = "Resume"
-            } else {
-                resumeRecording()
-            }
-        }
-    }
-
-    @SuppressLint("RestrictedApi", "SetTextI18n")
-    @TargetApi(Build.VERSION_CODES.N)
-    private fun resumeRecording() {
-        Toast.makeText(this, "Resume!", Toast.LENGTH_SHORT).show()
-        mediaRecorder?.resume()
-//        .text = "Pause"
-        recordingStopped = false
-    }
+//    private fun resumeRecording() {
+//        Toast.makeText(this, "Resume!", Toast.LENGTH_SHORT).show()
+//        mediaRecorder?.resume()
+////        .text = "Pause"
+//        recordingStopped = false
+//    }
 
 }
