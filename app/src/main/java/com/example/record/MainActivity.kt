@@ -53,14 +53,14 @@ class MainActivity : AppCompatActivity() {
             ActivityCompat.requestPermissions(this, permissions, 0)
         }
 
-        output = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/recording.mp3"
+//        output = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/recording.mp3"
         mediaRecorder = MediaRecorder()
-        Log.d("55555", output.toString())
+//        Log.d("55555", output.toString())
 
-        mediaRecorder!!.setAudioSource(MediaRecorder.AudioSource.MIC)
+        mediaRecorder!!.setAudioSource(MediaRecorder.AudioSource.DEFAULT)
         mediaRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
         mediaRecorder!!.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
-        mediaRecorder!!.setOutputFile(output)
+//        mediaRecorder!!.setOutputFile(output)
 
         btn_record.setOnClickListener {
             if (ContextCompat.checkSelfPermission(this,
@@ -87,6 +87,16 @@ class MainActivity : AppCompatActivity() {
         Log.d("55555", "ESAFGERSWVDEFGBDEFGR")
         try {
             Log.d("55555", "1111111111")
+            output = Environment.getExternalStoragePublicDirectory(Environment.DIRECTORY_DOWNLOADS).absolutePath + "/" + (1..100000).random() + "recording.mp3"
+            // random 1-100
+            mediaRecorder = MediaRecorder()
+//        Log.d("55555", output.toString())
+
+            mediaRecorder!!.setAudioSource(MediaRecorder.AudioSource.DEFAULT)
+            mediaRecorder!!.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+            mediaRecorder!!.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+            mediaRecorder!!.setOutputFile(output)
+
             mediaRecorder?.prepare()
             mediaRecorder?.start()
             state = true
